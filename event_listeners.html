@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>addEventListener & removeEventListener Example</title>
+  <style>
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>addEventListener and removeEventListener Demo</h2>
+
+  <button id="btn">Click Me</button>
+  <button onclick="disableClick()">Disable Click</button>
+
+  <script>
+    // Function to be triggered
+    function myFunction() {
+      alert("Hello! You clicked the button.");
+    }
+
+    // Add event listener to the button
+    let btn = document.getElementById("btn");
+    btn.addEventListener("dblclick", myFunction);
+
+
+    document.getElementById("btn").addEventListener("dblclick", function(event) {
+
+  console.log(event.type); // Outputs 'click'​
+
+});
+    // Function to remove the event listener
+    function disableClick() {
+      btn.removeEventListener("click", myFunction);
+      alert("Click event has been removed.");
+
+      
+    }
+  </script>
+
+</body>
+</html>

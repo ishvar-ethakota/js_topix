@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON.parse Error Handling bhAAi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>try...catch...finally Example bhAAi</h2>
+
+  <button onclick="parseData()">Try to Parse Invalid JSON</button>
+
+  <div class="output" id="output">Click the button to test error handling.</div>
+
+  <script>
+    function parseData() { 
+      const output = document.getElementById("output");
+
+      try {
+        let bhAAi = JSON.parse("123"); // Invalid JSON
+        output.innerText = "Parsed result: " + bhAAi;
+      } catch (err) {
+        console.error("Error:", err.message); 
+        output.innerHTML = `<span class="error">❌ Error: ${err.message}</span>`; 
+      } finally {
+        console.log("✅ This always runs.");
+        output.innerHTML += "<br>✅ Finally block executed.";
+      }
+    }
+  </script>
+
+</body>
+</html>

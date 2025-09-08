@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>API Request Example bhAAi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    #userData {
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Get User Data from API bhAAi</h2>
+  <button onclick="getUser()">Fetch User Info</button>
+
+  <div id="userData">
+    <strong>Click the button to load user data...</strong>
+  </div>
+
+  <script>
+    function getUser() {
+      fetch("https://jsonplaceholder.typicode.com/users/1")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("userData").innerHTML = `
+            <h3>User Info:</h3>
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Phone:</strong> ${data.phone}</p>
+            <p><strong>Website:</strong> ${data.website}</p>
+          `;
+        })
+        .catch(error => {
+          console.error("API Error bhAAi:", error);
+          document.getElementById("userData").innerText = "Failed to load data.";
+        });
+    }
+  </script>
+
+</body>
+</html>

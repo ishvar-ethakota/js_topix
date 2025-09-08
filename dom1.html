@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Change Example</title>
+</head>
+<body>
+
+  <h2>Color Change Example</h2>
+
+  <p id="result">Now this text is red!</p>
+
+  <button onclick="makeRed()">Change Color to Red</button>
+
+  <script>
+    function makeRed() {
+      
+    let confirmResult = confirm("Do you want to continue?");
+    if(confirmResult){
+      document.getElementById("result").innerText = "bhAAi is great";
+      document.getElementById("result").setAttribute("style", "color:red");
+    }
+    
+
+console.log(confirmResult);
+console.log(location.href);
+      
+    }
+    
+  </script>
+
+</body>
+</html>

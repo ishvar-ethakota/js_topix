@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spread & Rest bhAAi</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Spread and Rest Operators in JavaScript</h2>
+    <button onclick="showSpread()">Use Spread Operator</button>
+    <button onclick="useRest()">Use Rest Operator</button>
+
+    <div id="output">Click a button to see results here bhAAi!</div>
+
+    <script>
+        function showSpread() {
+            let arr1 = [1, 2, 3];
+            let arr2 = [4, 5, 6];
+
+            // Spread operator joins both arrays into a new one
+            let newArr = [...arr1, ...arr2];
+
+            document.getElementById("output").innerHTML = `
+        <strong>Spread Operator:</strong><br>
+        arr1 = [${arr1}]<br>
+        arr2 = [${arr2}]<br>
+        newArr = [${newArr}]
+      `;
+        }
+
+        function useRest() {
+            // Function using Rest operator to accept any number of arguments
+            function sum(...numbers) {
+                return numbers.reduce((total, n) => total + n, 0);
+            }
+
+            let total = sum(10, 20, 30, 40); // Pass multiple arguments
+
+            document.getElementById("output").innerHTML = `
+        <strong>Rest Operator:</strong><br>
+        Called sum(10, 20, 30, 40)<br>
+        Total = ${total}
+      `;
+        }
+    </script>
+
+</body>
+
+</html>

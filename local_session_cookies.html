@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Storage Demo</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Local Storage / Session Storage / Cookies</h1>
+
+  <!-- LOCAL STORAGE -->
+  <section>
+    <h2>🌐 Local Storage</h2>
+    <input type="text" id="localInput" placeholder="Enter value" />
+    <button onclick="saveLocal()">Save</button>
+    <button onclick="getLocal()">Get</button>
+    <button onclick="removeLocal()">Remove</button>
+    <p id="localOutput"></p>
+  </section>
+
+  <!-- SESSION STORAGE -->
+  <section>
+    <h2>🗂️ Session Storage</h2>
+    <input type="text" id="sessionInput" placeholder="Enter value" />
+    <button onclick="saveSession()">Save</button>
+    <button onclick="getSession()">Get</button>
+    <button onclick="removeSession()">Remove</button>
+    <p id="sessionOutput"></p>
+  </section>
+
+  <!-- COOKIES -->
+  <section>
+    <h2>🍪 Cookies</h2>
+    <input type="text" id="cookieInput" placeholder="Enter value" />
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+    <p id="cookieOutput"></p>
+  </section>
+
+  <script>
+    // LOCAL STORAGE
+    function saveLocal() {
+      const value = document.getElementById("localInput").value;
+      localStorage.setItem("localData", value);
+      alert("Saved to Local Storage!");
+    }
+
+    function getLocal() {
+      const value = localStorage.getItem("localData");
+      document.getElementById("localOutput").textContent = "Value: " + (value || "Not found");
+    }
+
+    function removeLocal() {
+      localStorage.removeItem("localData");
+      document.getElementById("localOutput").textContent = "Local Storage cleared.";
+    }
+
+    // SESSION STORAGE
+    function saveSession() {
+      const value = document.getElementById("sessionInput").value;
+      sessionStorage.setItem("sessionData", value);
+      alert("Saved to Session Storage!");
+    }
+
+    function getSession() {
+      const value = sessionStorage.getItem("sessionData");
+      document.getElementById("sessionOutput").textContent = "Value: " + (value || "Not found");
+    }
+
+    function removeSession() {
+      sessionStorage.removeItem("sessionData");
+      document.getElementById("sessionOutput").textContent = "Session Storage cleared.";
+    }
+
+    // COOKIES
+    function setCookie() {
+      const value = document.getElementById("cookieInput").value;
+      document.cookie = "userData=" + encodeURIComponent(value) + "; path=/; expires=Fri, 31 Dec 2025 23:59:59 GMT";
+      alert("Cookie set!");
+    }
+
+    function getCookie() {
+      const cookies = document.cookie.split("; ");
+      let found = "Not found";
+      for (let c of cookies) {
+        if (c.startsWith("userData=")) {
+          found = decodeURIComponent(c.split("=")[1]);
+        }
+      }
+      document.getElementById("cookieOutput").textContent = "Value: " + found;
+    }
+
+    function deleteCookie() {
+      document.cookie = "userData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.getElementById("cookieOutput").textContent = "Cookie deleted.";
+    }
+  </script>
+
+</body>
+</html>

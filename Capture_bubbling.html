@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Demo</title>
+  <style>
+    .box {
+      padding: 50px;
+      border: 2px solid #000;
+      margin: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="parent" class="box" style="background-color: lightblue;">
+    Parent
+    <div id="child" class="box" style="background-color: lightgreen;">
+      Child
+    </div>
+  </div>
+
+  <script>
+    function logEvent(ent) {
+      alert("Clicked on: " + ent.currentTarget.id);
+    }
+
+    // Capturing: fires from outer to inner (top-down)
+    document.getElementById("parent").addEventListener("click", function () {
+      alert("PARENT (Capture Phase)");
+    }, true);  // useCapture = true
+
+    document.getElementById("child").addEventListener("click", function () {
+      alert("CHILD (Capture Phase)");
+    }, true);
+
+    // Bubbling: fires from inner to outer (bottom-up)
+    document.getElementById("child").addEventListener("click", function () {
+      alert("CHILD (Bubble Phase)");
+    }, false);  // useCapture = false
+
+    document.getElementById("parent").addEventListener("click", function () {
+      alert("PARENT (Bubble Phase)");
+    }, false);
+    
+  </script>
+
+</body>
+</html>

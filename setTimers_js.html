@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Timer Functions bhAAi</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 30px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 20px;
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Timer Functions Demo</h2>
+
+  <!-- setTimeout() and clearTimeout() -->
+  <button onclick="scheduleGreeting()">Show Greeting After 3s</button>
+  <button onclick="cancelGreeting()">Cancel Greeting</button>
+
+  <!-- setInterval() and clearInterval() -->
+  <button onclick="startClock()">Start Clock</button>
+  <button onclick="stopClock()">Stop Clock</button>
+
+  <div id="output">Output will appear here</div>
+
+  <script>
+    let timeoutId;
+    let intervalId;
+
+    // setTimeout()
+    function scheduleGreeting() {
+      document.getElementById("output").innerText = "Greeting scheduled... wait 3s";
+      timeoutId = setTimeout(() => {
+        document.getElementById("output").innerText = "👋 Hello bhAAi! This is from setTimeout!";
+      }, 3000);
+    }
+
+    // clearTimeout()
+    function cancelGreeting() {
+      clearTimeout(timeoutId);
+      document.getElementById("output").innerText = "Greeting cancelled!";
+    }
+
+    // setInterval()
+    function startClock() {
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          const now = new Date();
+          document.getElementById("output").innerText = "⏰ Time: " + now.toLocaleTimeString();
+        }, 1000);
+      }
+    }
+
+    // clearInterval()
+    function stopClock() {
+      clearInterval(intervalId);
+      intervalId = null;
+      document.getElementById("output").innerText = "Clock stopped bhAAi!";
+    }
+  </script>
+
+</body>
+</html>

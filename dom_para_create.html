@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Paragraph Example</title>
+  <style>
+    h1{
+        color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click the button to add a new paragraph</h2>
+  
+  <button onclick="addParagraph()">Add Paragraph</button>
+  <button onclick="addlist()">Add Paragraph</button>
+
+  <script>
+    function addParagraph() {
+      let para = document.createElement("h1");
+      para.innerHTML = "This is a new paragraph.";
+      document.body.appendChild(para);
+    }
+    function addlist(){
+      let list = document.createElement("ul");
+      list.innerHTML.li="nhsdshg"
+      document.body.appendChild(list);
+
+    }
+  </script>
+
+</body>
+</html>

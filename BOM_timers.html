@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>prompt(), setTimeout(), setInterval() Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    #clock {
+      font-size: 24px;
+      color: green;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Time Functions Demo</h2>
+
+  <button onclick="getUserName()">1. prompt()</button>
+  <button onclick="delayedMessage()">2. setTimeout()</button>
+  <button onclick="startClock()">3. setInterval()</button>
+  <button onclick="stopClock()">Stop Clock</button>
+
+  <h3 id="output">gcgbhg</h3>
+  <div id="clock"></div>
+
+  <script>
+    // 1. prompt() - Ask for user input
+    function getUserName() {
+      let name = prompt("What is your name?");
+      if (name) {
+        document.getElementById("output").innerText = "Hello, " + name + "!";
+      } else {
+        document.getElementById("output").innerText = "You didn't enter your name.";
+      }
+    }
+
+    // 2. setTimeout() - Show a message after 3 seconds
+    function delayedMessage() {
+      document.getElementById("output").innerText = "Please wait...";
+      setTimeout(function () {
+        document.getElementById("output").innerText = "This message appeared after 3 seconds!";
+      }, 3000);
+    }
+
+    // 3. setInterval() - Show live clock
+    let intervalId;
+
+    function startClock() {
+      intervalId = setInterval(function () {
+        const now = new Date();
+        document.getElementById("clock").innerText = "Current Time: " + now.toLocaleTimeString();
+      }, 1000);
+    }
+
+    // Stop the interval
+    function stopClock() {
+      clearInterval(intervalId);
+      document.getElementById("clock").innerText = "Clock stopped.";
+    }
+  </script>
+
+</body>
+</html>

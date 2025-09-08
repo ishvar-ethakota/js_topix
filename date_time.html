@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date & Time Example bhAAi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Date & Time bhAAi</h2>
+
+  <button onclick="showDateTime()">Show Current Date & Time</button>
+
+  <div id="output">Click the button to see results here.</div>
+
+  <script>
+    function showDateTime() {
+      let now = new Date(); // 📅 Get current date and time
+
+      let year = now.getFullYear();       // ✅ Current year (e.g., 2025)
+      let month = now.getMonth() + 1;     // ✅ Months start from 0, so we add 1
+      let date = now.getDate();           // ✅ Current date (1-31)
+
+      let hours = now.getHours();         // 🕒 Hours (0-23)
+      let minutes = now.getMinutes();     // 🕑 Minutes (0-59)
+      let seconds = now.getSeconds();     // 🕓 Seconds (0-59)
+
+      document.getElementById("output").innerHTML = `
+        <strong>Today's Date:</strong> ${date}/${month}/${year}<br>
+        <strong>Current Time:</strong> ${hours}:${minutes}:${seconds}
+      `;
+    }
+  </script>
+
+</body>
+</html>
+
+

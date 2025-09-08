@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Async Await Example</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Async / Await Example 🍔</h1>
+  <button onclick="getUserData()">Fetch User Info</button>
+  <div id="output" style="background-color: blue;"><h1>click the button to fetch user data...</h1></div>
+
+  <script>
+    // Simulate an API call (e.g. fetching user from database)
+    function fetchUser() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            name: "Rahul",
+            age: 22,
+            city: "Mumbai"
+          });
+        }, 2000); // Simulate 2 seconds delay
+      });
+    }
+
+    // Use async/await to fetch and display user data
+    async function getUserData() {
+      const output = document.getElementById("output");
+      output.textContent = "Fetching user data... Please wait ⏳";
+
+      try {
+        const user = await fetchUser(); // wait for the promise to resolve
+        output.textContent = `✅ User Loaded: ${user.name}, ${user.age} years old, from ${user.city}.`;
+      } catch (error) {
+        output.textContent = "❌ Error fetching data: " + error;
+      }
+    }
+  </script>
+</body>
+</html>

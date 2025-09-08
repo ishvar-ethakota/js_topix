@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Events Demo</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        input,textarea {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+        }
+
+        #log {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>JavaScript Form Events</h2>
+
+    <form id="myForm">
+        <label>Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Search:</label>
+        <input type="search" id="searchBox">
+
+        <label>Bio:</label>
+        <textarea id="bio" rows="3"placeholder="bhAAi"></textarea>
+
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <div id="log"><strong>Log:</strong></div>
+
+    <script>
+        const log = document.getElementById("log");
+
+        function logMessage(message) {
+            const p = document.createElement("p");
+            p.textContent = message;
+            log.appendChild(p);
+        }
+
+        const nameInput = document.getElementById("name");
+        const searchInput = document.getElementById("searchBox");
+        const bio = document.getElementById("bio");
+        const form = document.getElementById("myForm");
+
+        nameInput.onfocus = () => logMessage("Name field focused");
+        nameInput.onblur = () => logMessage("Name field blurred");
+        nameInput.onchange = () => logMessage("Name changed (after blur)");
+        nameInput.oninput = () => logMessage("Typing in name field");
+        nameInput.oninvalid = () => logMessage("Invalid name field (empty)");
+
+        searchInput.onsearch = () => logMessage("Search triggered");
+
+        bio.onselect = () => logMessage("Text selected in bio");
+
+        form.onreset = () => logMessage("Form reset");
+        form.onsubmit = (e) => {
+            e.preventDefault(); // prevent actual submit
+            logMessage("Form submitted");
+        };
+    </script>
+
+</body>
+
+</html>

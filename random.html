@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON stringify & parse bhAAi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JSON.stringify() and JSON.parse() Example</h2>
+
+  <button onclick="convertJson()">Click to Convert</button>
+
+  <div class="output" id="output"></div>
+
+  <script>
+    function convertJson() {
+      // Step 1: JavaScript object
+      let data = { name: 'Aman', city: 'Mumbai' };
+      console.log("Original Object:", data);
+
+      // Step 2: Convert to JSON string
+      let str = JSON.stringify(data);
+      console.log("JSON String:", str);
+
+      // Step 3: Convert back to JavaScript object
+      let obj = JSON.parse(str);
+      console.log("Parsed Object:", obj);
+
+      // Show in browser
+      document.getElementById("output").innerHTML = `
+        <strong>Original Object:</strong> ${JSON.stringify(data)}<br>
+        <strong>JSON String:</strong> ${str}<br>
+        <strong>Parsed Object:</strong> ${JSON.stringify(obj)}
+      `;
+    }
+  </script>
+
+</body>
+</html>

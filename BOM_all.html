@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOM Full Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Browser Object Model (BOM) Example</h2>
+
+  <button onclick="showAlert()">1. Window - Alert</button>
+  <button onclick="showLocation()">2. Location - Show URL</button>
+  <button onclick="redirect()">3. Location - Redirect</button>
+  <button onclick="goBack()">4. History - Go Back</button>
+  <button onclick="getBrowserInfo()">5. Navigator - Browser Info</button>
+  <button onclick="getScreenInfo()">6. Screen - Display Info</button>
+
+  <div id="output" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <script>
+    // 1. window
+    function showAlert() {
+      alert("Hello! This alert uses the window object.");
+      let bhaai = confirm("BHaai");
+      prompt("BhaaaaI");
+      console.log(bhaai)
+    }
+
+    // 2. location - display current URL
+    function showLocation() {
+      document.getElementById("output").innerText = "Current URL: " + location.href;
+    }
+
+    // 3. location - redirect to another page
+    function redirect() {
+      location.href = "https://www.google.com";
+    }
+
+    // 4. history - go back
+    function goBack() {
+      history.back(); // Equivalent to pressing the back button in the browser
+    }
+
+    // 5. navigator - get browser info
+    function getBrowserInfo() {
+      document.getElementById("output").innerText = 
+        "Browser Info: " + navigator.userAgent;
+    }
+
+    // 6. screen - display screen dimensions
+    function getScreenInfo() {
+      document.getElementById("output").innerText = 
+        "Screen Width: " + screen.width + ", Height: " + screen.height;
+    // 6. screen - display screen dimensions
+    
+    }
+  </script>
+
+</body>
+</html>
